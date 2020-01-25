@@ -1,0 +1,14 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Moment{% endblock title %}
+
+{% block scripts %}
+{{super()}}
+{{ moment.include_moment() }}
+{% endblock scripts %}
+
+{% block page_content %}
+<p>The local date and time is : <span style="font-weight: bolder;">{{ moment(current_time).format('LLL') }}</span></p>
+<p>You have stayed in this page <span style="font-weight: bolder;">{{ moment(current_time).fromNow(refresh=True) }}</span> </p>
+{% endblock page_content %}
