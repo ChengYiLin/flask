@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} Web Form {% endblock title %}
+
+{% block page_content %}
+{% for message in get_flashed_messages() %}
+<div class="alert {% if state %}alert-success{% else %}alert-danger{% endif %}" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+</div>
+{% endfor %}
+<div class="page-header">
+    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}! </h1>
+</div>
+{{ wtf.quick_form(form) }}
+{% endblock page_content %}

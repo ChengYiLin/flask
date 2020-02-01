@@ -1,11 +1,13 @@
 {% extends "base.html" %}
-{% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %} Web Form {% endblock title %}
 
 {% block page_content %}
 <div class="page-header">
-    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}! </h1>
+    <h1>This is using jinja2</h1>
 </div>
-{{ wtf.quick_form(form) }}
+<form method="POST">
+    <p>{{form.name.label}} : {{form.name}}</p>
+    <p>{{form.submit}}</p>
+</form>
 {% endblock page_content %}
